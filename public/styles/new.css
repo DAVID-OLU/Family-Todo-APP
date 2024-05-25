@@ -1,0 +1,16 @@
+body {
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 95vh;
+}
+
+.new {
+    max-width: 800px;
+    margin: 100px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <!-- google fonts -->
+
+    <!-- Bootstrap & CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- fontawesome icon -->
+    <script src="https://kit.fontawesome.com/855112bb4f.js" crossorigin="anonymous"></script>
+    <title>Todo-List</title>
+  
+</head>
+<body>
+    <main>
+        <div class="add-member-body">
+            <form class="add-member" action="/member" method="post">
+                <% members.forEach(function(member) { %>
+                    <input class="member-id" type="submit" name="member" value="<%= member.id %>" id="<%= member.id %>">
+                    <label class="member-name" for="<%= member.id %>" style="background-color: <%= member.color %>;">
+                        <%= member.name %>
+                    </label>
+                <% }); %>
+                
+                <input class="add-member-button" type="submit" name="add" value="Add Family Member" for="tab"></input>
+            </form>
+
+        </div>
+        
+
+
+        <div class="phone-task" id="phone-heading">
+            <h1>
+                <%= phoneTaskhead %>
+            </h1>
+        </div>
+
+        <div class="phone-task">
+                <% for(let task of listTasks) { %>
+                    <div class="task">
+                        <form action="/delete" method="post">
+                            <input type="checkbox" onchange="this.form.submit()" name="deleteTaskId" value="<%= task.id %>">
+                        </form>
+
+                        <p id="title<%=task.id%>">
+                            <%= task.title %>
+                        </p>
+
+                        <form class="edit" action="/edit" method="post">
+                            <input type="hidden" name="updatedTaskId" value="<%= task.id %>">
+                            <input id="input<%= task.id %>" type="text" name="updatedTaskTitle" value="<%= task.title %>" autocomplete="off" autofocus="true" hidden="true">
+                            <button id="done<%= task.id %>" class="edit" type="submit" hidden><img class="icon"
+                                src="/assets/icons/check-solid.svg" alt="tick image"></button>
+                        </form>
+
+                        <button id="edit<%= task.id %>" class="edit" onclick="handler('<%=task.id%>')"><img class="icon"
+                            src="/assets/icons/pencil-solid.svg" alt="pencil image"></button>
+
+                    </div>
+                <% } %>
+
+                <form class="task" action="/add" method="post">
+                    <input class="task-input" type="text" name="newTask" placeholder="New Task" autocomplete="off" autofocus="true">
+                    <button class="add" type="submit" name="list" value="<%= phoneTaskhead %>">+</button>
+                </form>
+        </div>
+
+        <script>
+            function handler(id) {
+                document.getElementById("title" + id).setAttribute("hidden", true)
+                document.getElementById("edit" + id).setAttribute("hidden", true)
+                document.getElementById("done" + id).removeAttribute("hidden")
+                document.getElementById("input" + id).removeAttribute("hidden")
+            }
+        </script>
+
+
+    </main>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+</body>
+</html>
+
+
+    
+
+
+

@@ -1,0 +1,115 @@
+
+body {
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 95vh;
+}
+.phone-task {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+
+#phone-heading {
+    background-color: #a683e3;
+    text-align: center;
+}
+h1 {
+    color: #fff;
+    padding: 10px;
+  }
+
+main {
+  text-align: center;
+  flex: 1 0 auto;
+}
+
+.icon {
+    height: 20px;
+    padding: 2px;
+}
+
+.task {
+    padding: 10px;
+    display: flex;
+    min-height: 70px;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+.task:last-child {
+    border-bottom: 0;
+  }
+
+.task-input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-bottom: 3px solid #a683e3;
+}
+
+
+p {
+    margin: 0;
+    padding: 15px;
+    color: #123058;
+    font-size: 20px;
+}
+form {
+    text-align: center;
+    margin-left: 20px;
+  }
+form.edit {
+    display: flex;
+  }
+
+button.edit {
+    border: none;
+    background: none;
+    margin-left: 0px;
+    margin-right: 20px;
+}
+
+button.add {
+    min-height: 50px;
+    width: 50px;
+    font-size: 30px;
+    border-width: 0px;
+    border-radius: 50%;
+    background-color: #9e89c2;
+    border-color: transparent;
+    color: #fff;
+}
+
+.add:hover {
+    cursor: pointer;
+    background-color: #FF7ED4;
+    color: #fff;
+}
+.add {
+    margin-left: 10px;
+}
+#tab {
+    display: none;
+}
+.member-id{
+    display: none;
+}
+.member-name {
+    cursor: pointer;
+    padding: 12px;
+}
+.add-member-body {
+    border: 1px solid purple;
+}
+.add-member {
+    text-align: end;
+}
+.add-member-button {
+    padding: 12px;
+    background: #FEFDED;
+    border: none;
+}
